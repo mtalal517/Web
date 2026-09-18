@@ -1,0 +1,3 @@
+import { StudioNote, ContactScene, ServiceList } from '@/components/studio';
+export const metadata={title:'Behind the lens',description:'Meet the independent photography and film studio behind Still / Moving.'};
+export default function About(){return <main id="main" className="inner-page"><div className="page-intro section-pad"><span className="eyebrow">THE STUDIO</span><h1>A small team.<br/><em>An open eye.</em></h1><p>Based in Islamabad. Following stories everywhere.</p></div><StudioNote/><section className="section-pad"><div className="section-heading"><div><span className="eyebrow">WHAT WE BRING TO THE FRAME</span><h2>Still. <em>And moving.</em></h2></div></div><ServiceList/></section><ContactScene/></main>;}

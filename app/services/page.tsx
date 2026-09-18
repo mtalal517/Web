@@ -1,0 +1,3 @@
+import { ServiceList, ContactScene } from '@/components/studio';
+export const metadata={title:'Photography & film services',description:'Wedding photography and films, food photography and video, events, portraits, commercial photography, and brand films.'};
+export default function Services(){return <main id="main" className="inner-page"><div className="page-intro section-pad"><span className="eyebrow">PHOTOGRAPHY / FILM / CREATIVE COLLABORATION</span><h1>The right eye.<br/><em>For your story.</em></h1><p>From the first conversation to the final frame, we build the approach around the work. Tell us what you’re imagining.</p></div><section className="services-content section-pad" aria-label="Our services"><ServiceList/></section><ContactScene/></main>;}
