@@ -11,7 +11,32 @@ A Next.js App Router photography and film portfolio with TypeScript, Tailwind CS
 
 ## Replace demo content
 
-Edit `lib/portfolio.ts` for all projects, categories, services, studio contact details, and image URLs. The six stories are illustrative portfolio content, not claims of completed client commissions. Photography is provided through Unsplash remote placeholders; replace with your licensed client assets before launch. Set meaningful image descriptions when replacing assets.
+Edit `lib/portfolio.ts` for all projects, categories, services, studio contact details, and media links. The six stories are illustrative portfolio content, not claims of completed client commissions. Photography is provided through Unsplash remote placeholders; replace with your licensed client assets before launch. Set meaningful image descriptions when replacing assets.
+
+All photo and video links are now grouped in the `mediaLinks` block near the top of `lib/portfolio.ts`. Replace those values and the whole website updates automatically: the homepage, archive, category pages, project pages, and studio section.
+
+For local files, add your media to `public/media/`, then use paths like:
+
+```ts
+cover: '/media/my-wedding-cover.jpg',
+photos: [
+  '/media/my-wedding-01.jpg',
+  '/media/my-wedding-02.jpg',
+  '/media/my-wedding-03.jpg',
+],
+videos: [
+  '/media/my-wedding-film.mp4',
+],
+```
+
+For online files, paste the full URL:
+
+```ts
+cover: 'https://your-site.com/my-photo.jpg',
+videos: [
+  'https://your-site.com/my-film.mp4',
+],
+```
 
 Project routes and category pages generate automatically. Add optional `videos: ['/films/example.mp4']` to a project to activate its click-to-load film player. No unrelated demo film is presented as the studio's work.
 
