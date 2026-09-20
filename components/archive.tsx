@@ -1,5 +1,8 @@
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
-import { projects, categories, Category } from '@/lib/portfolio';
-import { Photo, Reveal } from './visuals';
-export function Archive({category}:{category?:Category}){const items=projects.filter(p=>!category||p.category===category);return <><div className="page-intro section-pad"><span className="eyebrow">SELECTED FILMS / 2025—2026</span><h1>{category?<>{category}<em>.</em></>:<>Stories in <em>motion.</em></>}</h1><p>{category?'A closer look at how I approach this kind of story.':'People, places, sound, and the moments in between. A selection of films shaped from my point of view.'}</p><nav className="filter-nav" aria-label="Portfolio categories"><Link href="/work" aria-current={!category?'page':undefined}>All films ({projects.length})</Link>{categories.map(c=><Link key={c} href={`/work/category/${c.toLowerCase()}`} aria-current={category===c?'page':undefined}>{c}</Link>)}</nav></div><div className="archive-grid section-pad">{items.map(p=><Reveal className="project-preview" key={p.slug}><Link href={`/work/${p.slug}`} data-cursor="VIEW"><Photo src={p.coverImage} alt={p.alt}/><div className="project-caption"><h3>{p.title}</h3><span>{p.category.toUpperCase()} / FILM / {p.year}</span><ArrowUpRight size={18}/></div></Link></Reveal>)}</div></>;}
+import { reels, categories, Category } from '@/lib/portfolio';
+import { ReelGrid } from './reels';
+
+export function Archive({category}:{category?:Category}) {
+  const items = reels.filter(reel => !category || reel.category === category);
+  return <><div className="page-intro section-pad"><span className="eyebrow">PUBLIC REELS / 2025—2026</span><h1>{category?<>{category}<em>.</em></>:<>Watch the <em>work.</em></>}</h1><p>{category?'Portrait-first work from this side of Ahmed’s practice. Tap any card to load the public Instagram reel.':'Social-first films made for attention, rhythm, and replay. Each Instagram embed loads only when you choose it.'}</p><nav className="filter-nav" aria-label="Reel categories"><Link href="/work" aria-current={!category?'page':undefined}>All reels ({reels.length})</Link>{categories.map(c=><Link key={c} href={`/work/category/${c.toLowerCase()}`} aria-current={category===c?'page':undefined}>{c}</Link>)}</nav></div><section className="reel-archive section-pad" aria-label={category?`${category} reels`:'All Instagram reels'}><ReelGrid items={items}/></section></>;
+}

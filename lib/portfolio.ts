@@ -2,11 +2,11 @@ export const studio = {
   name: 'ahmedphotography',
   email: 'hello@example.com',
   phone: '+92 300 0000000',
-  instagram: 'https://www.instagram.com/',
+  instagram: 'https://www.instagram.com/ahmedphotography_0/',
   location: 'Islamabad, Pakistan',
 };
 
-export const categories = ['Weddings', 'Hospitality', 'Events', 'Portraits', 'Brands', 'Editorial'] as const;
+export const categories = ['Showreels', 'Hospitality', 'Brands', 'Process', 'Travel'] as const;
 
 export type Category = typeof categories[number];
 
@@ -21,6 +21,17 @@ export type Project = {
   images: string[];
   alt: string;
   videos?: string[];
+};
+
+export type InstagramReel = {
+  id: string;
+  title: string;
+  category: Category;
+  client: string;
+  year: number;
+  description: string;
+  url: string;
+  embedUrl: string;
 };
 
 export const photo = (id: string, width = 1600) =>
@@ -120,7 +131,7 @@ export const projects: Project[] = [
   {
     slug: 'a-day-to-remember',
     title: 'A day in motion.',
-    category: 'Weddings',
+    category: 'Showreels',
     year: 2026,
     location: 'Wedding film',
     description:
@@ -146,7 +157,7 @@ export const projects: Project[] = [
   {
     slug: 'after-hours',
     title: 'When the room moves.',
-    category: 'Events',
+    category: 'Process',
     year: 2025,
     location: 'Event aftermovie',
     description:
@@ -159,7 +170,7 @@ export const projects: Project[] = [
   {
     slug: 'in-your-own-light',
     title: 'In your own rhythm.',
-    category: 'Portraits',
+    category: 'Showreels',
     year: 2026,
     location: 'Portrait film',
     description:
@@ -185,7 +196,7 @@ export const projects: Project[] = [
   {
     slug: 'ordinary-muse',
     title: 'Between takes.',
-    category: 'Editorial',
+    category: 'Travel',
     year: 2026,
     location: 'Editorial motion',
     description:
@@ -197,12 +208,85 @@ export const projects: Project[] = [
   },
 ];
 
+export const reels: InstagramReel[] = [
+  {
+    id: '2025-showreel',
+    title: 'The 2025 journey.',
+    category: 'Showreels',
+    client: 'Selected work',
+    year: 2025,
+    description: 'A portrait-format edit bringing together favourite frames, collaborations, and stories from across the year.',
+    url: 'https://www.instagram.com/ahmedphotography_0/reel/DSIFCnAjJji/',
+    embedUrl: 'https://www.instagram.com/reel/DSIFCnAjJji/embed/',
+  },
+  {
+    id: 'brew-district',
+    title: 'What you see / what we create.',
+    category: 'Brands',
+    client: 'Brew District',
+    year: 2026,
+    description: 'A behind-the-lens look at the craft and final cinematic result of a recent brand shoot.',
+    url: 'https://www.instagram.com/ahmedphotography_0/reel/DXby_IMjKR7/',
+    embedUrl: 'https://www.instagram.com/reel/DXby_IMjKR7/embed/',
+  },
+  {
+    id: 'lasortie',
+    title: 'A taste of Lasortie.',
+    category: 'Hospitality',
+    client: 'Lasortie Restaurant',
+    year: 2025,
+    description: 'Food, atmosphere, and service shaped into a concise hospitality reel.',
+    url: 'https://www.instagram.com/ahmedphotography_0/reel/DRMzjEvDH9L/',
+    embedUrl: 'https://www.instagram.com/reel/DRMzjEvDH9L/embed/',
+  },
+  {
+    id: 'hotel-crown-bts',
+    title: 'Behind the Hotel Crown shoot.',
+    category: 'Process',
+    client: 'Hotel Crown',
+    year: 2025,
+    description: 'A quick look at the location, setup, and movement behind a commercial food shoot.',
+    url: 'https://www.instagram.com/ahmedphotography_0/reel/DPqY0ABDHm-/',
+    embedUrl: 'https://www.instagram.com/reel/DPqY0ABDHm-/embed/',
+  },
+  {
+    id: 'watandar',
+    title: 'Watandar Restaurant.',
+    category: 'Hospitality',
+    client: 'Watandar Restaurant',
+    year: 2025,
+    description: 'An energetic food reel built around Afghani tikka, flame, texture, and place.',
+    url: 'https://www.instagram.com/ahmedphotography_0/reel/DPbRmVPiOAY/',
+    embedUrl: 'https://www.instagram.com/reel/DPbRmVPiOAY/embed/',
+  },
+  {
+    id: 'recent-shoot-bts',
+    title: 'The frame behind the frame.',
+    category: 'Process',
+    client: 'Behind the scenes',
+    year: 2025,
+    description: 'A compact process reel showing how a cinematic setup comes together before the final shot.',
+    url: 'https://www.instagram.com/ahmedphotography_0/reel/DPGPpG3jA6f/',
+    embedUrl: 'https://www.instagram.com/reel/DPGPpG3jA6f/embed/',
+  },
+  {
+    id: 'rawalpindi-photowalk',
+    title: 'Rawalpindi Photowalk.',
+    category: 'Travel',
+    client: 'Personal work',
+    year: 2025,
+    description: 'Behind the scenes from a day of observing Rawalpindi through movement, streets, and people.',
+    url: 'https://www.instagram.com/ahmedphotography_0/reel/DO269_ECFjf/',
+    embedUrl: 'https://www.instagram.com/reel/DO269_ECFjf/embed/',
+  },
+];
+
 export const services = [
-  'Wedding Films',
-  'Brand Films',
-  'Event Aftermovies',
-  'Hospitality Films',
+  'Instagram Reels',
   'Social Content',
+  'Brand Films',
+  'Hospitality Films',
+  'Event Aftermovies',
   'Music & Performance',
   'Portrait Films',
   'Photography',
