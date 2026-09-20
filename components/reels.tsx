@@ -4,32 +4,34 @@ import { useState } from 'react';
 import { ExternalLink, Play } from 'lucide-react';
 import type { InstagramReel } from '@/lib/portfolio';
 
-export function ReelCard({ reel, index }: { reel: InstagramReel; index: number }) {
-  const [loaded, setLoaded] = useState(false);
-
+function ReelCard({ reel, index, active, onPlay }: { reel: InstagramReel; index: number; active: boolean; onPlay: () => void }) {
   return <article className="reel-card">
-    <div className="reel-frame">
-      {loaded ? <iframe
-        src={reel.embedUrl}
-        title={`${reel.title} — Instagram reel`}
-        loading="lazy"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-        allowFullScreen
-        referrerPolicy="strict-origin-when-cross-origin"
-      /> : <button className="reel-placeholder" type="button" onClick={() => setLoaded(true)} aria-label={`Load reel: ${reel.title}`}>
+    <div className="reel-frame" id={reel.id}>
+      {active ? <video
+        className="reel-native-video"
+        src={reel.video}
+        poster={reel.thumbnail}
+        controls
+        autoPlay
+        playsInline
+        preload="metadata"
+        aria-label={`${reel.title} video`}
+      /> : <button className="reel-cover" type="button" onClick={onPlay} aria-label={`Watch ${reel.title}`} data-cursor="PLAY">
+        <img src={reel.thumbnail} alt={`${reel.title} reel cover`} loading="lazy" />
+        <span className="reel-cover-shade" />
         <span className="reel-number">REEL / {String(index + 1).padStart(2, '0')}</span>
-        <img src="/brand/ahmad-logo-dark.png" alt="" loading="lazy" />
-        <span className="reel-play"><Play size={18} fill="currentColor" /> Load reel</span>
+        <span className="reel-play"><Play size={18} fill="currentColor" /> Watch reel</span>
         <span className="reel-runtime">PORTRAIT / 9:16</span>
       </button>}
     </div>
     <div className="reel-caption">
-      <div><span>{reel.category.toUpperCase()} / {reel.year}</span><h3>{reel.title}</h3><p>{reel.client}</p></div>
+      <div><span>{reel.category.toUpperCase()} / {reel.year}</span><h3><button className="reel-title-button" type="button" onClick={onPlay}>{reel.title}</button></h3><p>{reel.client}</p></div>
       <a href={reel.url} target="_blank" rel="noreferrer" aria-label={`Open ${reel.title} on Instagram`}><ExternalLink size={17} /></a>
     </div>
   </article>;
 }
 
 export function ReelGrid({ items, compact = false }: { items: InstagramReel[]; compact?: boolean }) {
-  return <div className={`reel-grid ${compact ? 'reel-grid-compact' : ''}`}>{items.map((reel, index) => <ReelCard key={reel.id} reel={reel} index={index} />)}</div>;
+  const [activeId, setActiveId] = useState<string | null>(null);
+  return <div className={`reel-grid ${compact ? 'reel-grid-compact' : ''}`}>{items.map((reel, index) => <ReelCard key={reel.id} reel={reel} index={index} active={activeId === reel.id} onPlay={() => setActiveId(reel.id)} />)}</div>;
 }

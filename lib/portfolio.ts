@@ -30,8 +30,9 @@ export type InstagramReel = {
   client: string;
   year: number;
   description: string;
+  thumbnail: string;
+  video: string;
   url: string;
-  embedUrl: string;
 };
 
 export const photo = (id: string, width = 1600) =>
@@ -216,8 +217,9 @@ export const reels: InstagramReel[] = [
     client: 'Selected work',
     year: 2025,
     description: 'A portrait-format edit bringing together favourite frames, collaborations, and stories from across the year.',
+    thumbnail: '/reels/2025-showreel.jpg',
+    video: '/reels/2025-showreel.mp4',
     url: 'https://www.instagram.com/ahmedphotography_0/reel/DSIFCnAjJji/',
-    embedUrl: 'https://www.instagram.com/reel/DSIFCnAjJji/embed/',
   },
   {
     id: 'brew-district',
@@ -226,8 +228,9 @@ export const reels: InstagramReel[] = [
     client: 'Brew District',
     year: 2026,
     description: 'A behind-the-lens look at the craft and final cinematic result of a recent brand shoot.',
+    thumbnail: '/reels/brew-district.jpg',
+    video: '/reels/brew-district.mp4',
     url: 'https://www.instagram.com/ahmedphotography_0/reel/DXby_IMjKR7/',
-    embedUrl: 'https://www.instagram.com/reel/DXby_IMjKR7/embed/',
   },
   {
     id: 'lasortie',
@@ -236,8 +239,9 @@ export const reels: InstagramReel[] = [
     client: 'Lasortie Restaurant',
     year: 2025,
     description: 'Food, atmosphere, and service shaped into a concise hospitality reel.',
+    thumbnail: '/reels/lasortie.jpg',
+    video: '/reels/lasortie.mp4',
     url: 'https://www.instagram.com/ahmedphotography_0/reel/DRMzjEvDH9L/',
-    embedUrl: 'https://www.instagram.com/reel/DRMzjEvDH9L/embed/',
   },
   {
     id: 'hotel-crown-bts',
@@ -246,8 +250,9 @@ export const reels: InstagramReel[] = [
     client: 'Hotel Crown',
     year: 2025,
     description: 'A quick look at the location, setup, and movement behind a commercial food shoot.',
+    thumbnail: '/reels/hotel-crown-bts.jpg',
+    video: '/reels/hotel-crown-bts.mp4',
     url: 'https://www.instagram.com/ahmedphotography_0/reel/DPqY0ABDHm-/',
-    embedUrl: 'https://www.instagram.com/reel/DPqY0ABDHm-/embed/',
   },
   {
     id: 'watandar',
@@ -256,8 +261,9 @@ export const reels: InstagramReel[] = [
     client: 'Watandar Restaurant',
     year: 2025,
     description: 'An energetic food reel built around Afghani tikka, flame, texture, and place.',
+    thumbnail: '/reels/watandar.jpg',
+    video: '/reels/watandar.mp4',
     url: 'https://www.instagram.com/ahmedphotography_0/reel/DPbRmVPiOAY/',
-    embedUrl: 'https://www.instagram.com/reel/DPbRmVPiOAY/embed/',
   },
   {
     id: 'recent-shoot-bts',
@@ -266,8 +272,9 @@ export const reels: InstagramReel[] = [
     client: 'Behind the scenes',
     year: 2025,
     description: 'A compact process reel showing how a cinematic setup comes together before the final shot.',
+    thumbnail: '/reels/recent-shoot-bts.jpg',
+    video: '/reels/recent-shoot-bts.mp4',
     url: 'https://www.instagram.com/ahmedphotography_0/reel/DPGPpG3jA6f/',
-    embedUrl: 'https://www.instagram.com/reel/DPGPpG3jA6f/embed/',
   },
   {
     id: 'rawalpindi-photowalk',
@@ -276,8 +283,9 @@ export const reels: InstagramReel[] = [
     client: 'Personal work',
     year: 2025,
     description: 'Behind the scenes from a day of observing Rawalpindi through movement, streets, and people.',
+    thumbnail: '/reels/rawalpindi-photowalk.jpg',
+    video: '/reels/rawalpindi-photowalk.mp4',
     url: 'https://www.instagram.com/ahmedphotography_0/reel/DO269_ECFjf/',
-    embedUrl: 'https://www.instagram.com/reel/DO269_ECFjf/embed/',
   },
 ];
 

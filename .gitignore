@@ -7,3 +7,5 @@ out/
 !.env.example
 .next-production/
 .next-dev/
+*.mp4
+*.jpg

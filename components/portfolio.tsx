@@ -26,7 +26,7 @@ export function Opening() {
     <div className="opening-title"><div className="eyebrow">CINEMATIC STORIES / REAL MOMENTS</div><h1>I frame<br /><em>what you feel.</em></h1></div>
     <div className="opening-bottom">
       <Link href="#selected" className="explore"><Play size={15} fill="currentColor" /> Watch my work <ArrowDown size={18} /></Link>
-      <a href={featuredReel.url} target="_blank" rel="noreferrer" className="opening-caption" data-cursor="PLAY"><span>FEATURED REEL — 0{active + 1}</span><strong>{featuredReel.title}</strong></a>
+      <Link href={`/work#${featuredReel.id}`} className="opening-caption" data-cursor="PLAY"><span>FEATURED REEL — 0{active + 1}</span><strong>{featuredReel.title}</strong></Link>
       <div className="slide-controls"><button aria-label="Previous featured film" onClick={() => setActive((active + 2) % 3)}><ArrowLeft size={18} /></button><span>0{active + 1} / 03</span><button aria-label="Next featured film" onClick={() => setActive((active + 1) % 3)}><ArrowRight size={18} /></button></div>
     </div>
   </section>;
