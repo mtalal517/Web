@@ -1,12 +1,12 @@
 export const studio = {
-  name: 'Still / Moving',
+  name: 'ahmedphotography',
   email: 'hello@example.com',
   phone: '+92 300 0000000',
   instagram: 'https://www.instagram.com/',
   location: 'Islamabad, Pakistan',
 };
 
-export const categories = ['Weddings', 'Food', 'Events', 'Portraits', 'Commercial', 'Editorial'] as const;
+export const categories = ['Weddings', 'Hospitality', 'Events', 'Portraits', 'Brands', 'Editorial'] as const;
 
 export type Category = typeof categories[number];
 
@@ -119,12 +119,12 @@ export const mediaLinks = {
 export const projects: Project[] = [
   {
     slug: 'a-day-to-remember',
-    title: 'A day, held still.',
+    title: 'A day in motion.',
     category: 'Weddings',
     year: 2026,
-    location: 'Wedding stories',
+    location: 'Wedding film',
     description:
-      'The anticipation. The unplanned glance. The space between celebrations. A wedding story told through the small things that stay with us.',
+      'The anticipation, the voices, the unplanned glance. A wedding film built from the small moments that bring the whole day back.',
     coverImage: mediaLinks.weddings.cover,
     images: mediaLinks.weddings.photos,
     videos: mediaLinks.weddings.videos,
@@ -132,12 +132,12 @@ export const projects: Project[] = [
   },
   {
     slug: 'at-the-table',
-    title: 'At the table.',
-    category: 'Food',
+    title: 'Made to be savoured.',
+    category: 'Hospitality',
     year: 2026,
-    location: 'Food & hospitality',
+    location: 'Hospitality film',
     description:
-      'An exploration of texture, ritual, and the pleasure of a shared table. Honest ingredients, considered light, and a little room for imperfection.',
+      'A sensory hospitality film shaped by texture, movement, and the rhythm of service—from the first flame to the final plate.',
     coverImage: mediaLinks.food.cover,
     images: mediaLinks.food.photos,
     videos: mediaLinks.food.videos,
@@ -145,12 +145,12 @@ export const projects: Project[] = [
   },
   {
     slug: 'after-hours',
-    title: 'After hours.',
+    title: 'When the room moves.',
     category: 'Events',
     year: 2025,
-    location: 'Live experiences',
+    location: 'Event aftermovie',
     description:
-      'When the lights fall and the room comes alive. A study of collective energy, fleeting connections, and the feeling of being there.',
+      'An event aftermovie cut to the pulse of the room—light, sound, fleeting connections, and the feeling of being right there.',
     coverImage: mediaLinks.events.cover,
     images: mediaLinks.events.photos,
     videos: mediaLinks.events.videos,
@@ -158,12 +158,12 @@ export const projects: Project[] = [
   },
   {
     slug: 'in-your-own-light',
-    title: 'In your own light.',
+    title: 'In your own rhythm.',
     category: 'Portraits',
     year: 2026,
-    location: 'Personal portraits',
+    location: 'Portrait film',
     description:
-      'No performance required. Just a conversation, a window, and the time to see someone a little differently.',
+      'A quiet moving portrait with no performance required—just conversation, natural light, and space for personality to come through.',
     coverImage: mediaLinks.portraits.cover,
     images: mediaLinks.portraits.photos,
     videos: mediaLinks.portraits.videos,
@@ -171,12 +171,12 @@ export const projects: Project[] = [
   },
   {
     slug: 'a-sense-of-place',
-    title: 'A sense of place.',
-    category: 'Commercial',
+    title: 'Built for belonging.',
+    category: 'Brands',
     year: 2025,
-    location: 'Architecture & interiors',
+    location: 'Brand film',
     description:
-      'Spaces have their own quiet language. Light tracing a wall, the curve of a chair, the balance of an empty room. An invitation to look closer.',
+      'A brand film about design, craft, and the feeling of place. Thoughtful camera movement lets the space speak for itself.',
     coverImage: mediaLinks.commercial.cover,
     images: mediaLinks.commercial.photos,
     videos: mediaLinks.commercial.videos,
@@ -184,12 +184,12 @@ export const projects: Project[] = [
   },
   {
     slug: 'ordinary-muse',
-    title: 'Ordinary muse.',
+    title: 'Between takes.',
     category: 'Editorial',
     year: 2026,
-    location: 'Fashion studies',
+    location: 'Editorial motion',
     description:
-      'A loose collection of gestures, silhouettes, and encounters. Fashion outside the frame, finding its rhythm in the everyday.',
+      'An editorial motion study of gestures, silhouettes, and encounters—fashion finding its rhythm in the everyday.',
     coverImage: mediaLinks.editorial.cover,
     images: mediaLinks.editorial.photos,
     videos: mediaLinks.editorial.videos,
@@ -198,12 +198,12 @@ export const projects: Project[] = [
 ];
 
 export const services = [
-  'Wedding Photography',
   'Wedding Films',
-  'Food Photography',
-  'Food Videography',
-  'Event Coverage',
-  'Portrait Photography',
-  'Commercial Photography',
   'Brand Films',
+  'Event Aftermovies',
+  'Hospitality Films',
+  'Social Content',
+  'Music & Performance',
+  'Portrait Films',
+  'Photography',
 ];

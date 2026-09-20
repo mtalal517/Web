@@ -1,6 +1,6 @@
-# Still / Moving
+# ahmedphotography
 
-A Next.js App Router photography and film portfolio with TypeScript, Tailwind CSS, Motion, and Lucide icons.
+A Next.js App Router personal filmmaker and photographer portfolio with TypeScript, Tailwind CSS, Motion, and Lucide icons.
 
 ## Run
 
@@ -11,9 +11,9 @@ A Next.js App Router photography and film portfolio with TypeScript, Tailwind CS
 
 ## Replace demo content
 
-Edit `lib/portfolio.ts` for all projects, categories, services, studio contact details, and media links. The six stories are illustrative portfolio content, not claims of completed client commissions. Photography is provided through Unsplash remote placeholders; replace with your licensed client assets before launch. Set meaningful image descriptions when replacing assets.
+Edit `lib/portfolio.ts` for all projects, categories, services, Ahmed’s contact details, and media links. The six stories are illustrative portfolio content, not claims of completed client commissions. Photography is provided through Unsplash remote placeholders; replace it with licensed film stills and client assets before launch. Set meaningful image descriptions when replacing assets.
 
-All photo and video links are now grouped in the `mediaLinks` block near the top of `lib/portfolio.ts`. Replace those values and the whole website updates automatically: the homepage, archive, category pages, project pages, and studio section.
+All photo and video links are grouped in the `mediaLinks` block near the top of `lib/portfolio.ts`. Replace those values and the whole website updates automatically: the homepage, archive, category pages, project pages, and About section.
 
 For local files, add your media to `public/media/`, then use paths like:
 
@@ -38,9 +38,9 @@ videos: [
 ],
 ```
 
-Project routes and category pages generate automatically. Add optional `videos: ['/films/example.mp4']` to a project to activate its click-to-load film player. No unrelated demo film is presented as the studio's work.
+Project routes and category pages generate automatically. Add optional `videos: ['/films/example.mp4']` to a project to activate its click-to-load film player. No unrelated demo film is presented as Ahmed’s work.
 
-Update the homepage studio text in `components/studio.tsx`, titles/descriptions in route metadata, and the inquiry destination in the central studio record. Contact is an honest mailto draft flow; there is no simulated backend or false delivery confirmation. Remove the demo-details notice from `app/contact/page.tsx` when configuring real contacts.
+Update the About text in `components/studio.tsx`, titles/descriptions in route metadata, and the inquiry destination in the central profile record. Contact is an honest mailto draft flow; there is no simulated backend or false delivery confirmation. Remove the demo-details notice from `app/contact/page.tsx` when configuring real contacts.
 
 ## Images and deployment
 
@@ -49,4 +49,3 @@ The static export uses Next Image with Unsplash's resize/format CDN parameters; 
 The initial palette is dark; system light preference is respected until the visitor explicitly chooses a theme. That explicit choice persists locally. Animations respect reduced motion, and touch devices retain their native cursor.
 
 During local development, the live preview uses `.next-dev/` to avoid locking the live preview's output on Windows.
-
