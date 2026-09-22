@@ -12,6 +12,7 @@ function ReelCard({ reel, index, active, onPlay }: { reel: InstagramReel; index:
         src={reel.video}
         poster={reel.thumbnail}
         controls
+        controlsList="nodownload"
         autoPlay
         playsInline
         preload="metadata"
@@ -21,7 +22,6 @@ function ReelCard({ reel, index, active, onPlay }: { reel: InstagramReel; index:
         <span className="reel-cover-shade" />
         <span className="reel-number">REEL / {String(index + 1).padStart(2, '0')}</span>
         <span className="reel-play"><Play size={18} fill="currentColor" /> Watch reel</span>
-        <span className="reel-runtime">PORTRAIT / 9:16</span>
       </button>}
     </div>
     <div className="reel-caption">

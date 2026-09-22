@@ -9,3 +9,5 @@ out/
 .next-dev/
 *.mp4
 *.jpg
+!public/reels/*.mp4
+!public/reels/*.jpg
