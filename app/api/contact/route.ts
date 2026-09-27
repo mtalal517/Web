@@ -51,14 +51,15 @@ export async function POST(request: NextRequest) {
     timeline: inquiry.timeline || '',
     message: inquiry.message,
   };
+  const senderName = message.name.replace(/[\r\n]/g, ' ');
 
   try {
     const transporter = nodemailer.createTransport({ service: 'gmail', auth: { user: gmailUser, pass: gmailPassword } });
     await transporter.sendMail({
       from: `ahmedphotography website <${gmailUser}>`,
       to: recipient,
-      replyTo: `${message.name} <${message.email}>`,
-      subject: `New ${message.service} inquiry from ${message.name}`.replace(/[\r\n]/g, ' '),
+      replyTo: `${senderName} <${message.email}>`,
+      subject: `New ${message.service} inquiry from ${senderName}`.replace(/[\r\n]/g, ' '),
       text: contactEmailText(message),
       html: contactEmailHtml(message),
     });

@@ -47,12 +47,12 @@ export function InquiryForm() {
       <label>Email address<input name="email" type="email" autoComplete="email" maxLength={160} required placeholder="you@example.com"/></label>
     </div>
     <div className="form-row">
-      <label>Phone number <span className="optional">OPTIONAL</span><input name="phone" type="tel" autoComplete="tel" maxLength={40} placeholder="+92 300 0000000"/></label>
-      <label>Project location <span className="optional">OPTIONAL</span><input name="location" maxLength={120} placeholder="Islamabad, Lahore, remote…"/></label>
+      <label><span className="field-label">Phone number <span className="optional">OPTIONAL</span></span><input name="phone" type="tel" autoComplete="tel" maxLength={40} placeholder="+92 300 0000000"/></label>
+      <label><span className="field-label">Project location <span className="optional">OPTIONAL</span></span><input name="location" maxLength={120} placeholder="Islamabad, Lahore, remote…"/></label>
     </div>
     <div className="form-row">
       <label>What are you imagining?<select name="service" value={service} onChange={event => setService(event.target.value)} required><option value="" disabled>Select a service</option>{services.map(item => <option key={item}>{item}</option>)}</select></label>
-      <label>Target date <span className="optional">OPTIONAL</span><input name="timeline" maxLength={100} placeholder="October 2026 / flexible"/></label>
+      <label><span className="field-label">Target date <span className="optional">OPTIONAL</span></span><input name="timeline" maxLength={100} placeholder="October 2026 / flexible"/></label>
     </div>
     <label>Tell me about the project<textarea name="message" maxLength={5000} required placeholder="The idea, deliverables, location, date, and what you want people to feel."/></label>
     <label className="form-honeypot" aria-hidden="true">Company website<input name="company" tabIndex={-1} autoComplete="off"/></label>

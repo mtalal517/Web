@@ -37,8 +37,8 @@ The user has explicitly requested local development for the current phase. Do no
 - Motion for selected transitions
 - Lucide icons
 - Tailwind is installed, but most of the established design is implemented as custom CSS in `app/globals.css`.
-- Production uses static export (`output: 'export'`) and writes to `out/`.
-- Development uses `.next-dev`; production builds use `.next`.
+- The contact form requires a Node.js runtime, so the project no longer uses static export.
+- Development uses `.next-dev`; production builds use `.next` and run with `npm start`.
 
 Common commands:
 
@@ -61,9 +61,28 @@ The most recent production build completed successfully with 19 statically gener
 - `/about` — Ahmed's personal profile
 - `/services` — services
 - `/contact` — inquiry form and contact details
+- `/api/contact` — Node.js POST endpoint that validates inquiries and sends them through Gmail/Nodemailer
 - `/work/[slug]` — older long-form project pages; these remain in the codebase but are not the primary reel experience
 
 There is intentionally no `/reels/[id]` detail page. The user rejected sending visitors to another page.
+
+## 4.1 Contact email delivery
+
+The contact form now submits directly to `/api/contact`; it no longer opens a `mailto:` draft.
+
+Required local environment variables are documented in `.env.example`:
+
+```text
+GMAIL_USER=your-address@gmail.com
+GMAIL_APP_PASSWORD=your-google-app-password
+CONTACT_TO_EMAIL=your-address@gmail.com
+```
+
+`CONTACT_TO_EMAIL` is optional and defaults to `GMAIL_USER`. Secrets must go in `.env.local`, which is ignored by Git. Never expose the Gmail App Password through a `NEXT_PUBLIC_` variable.
+
+The form collects name, email, optional phone, optional location, service, optional target date, and the project message. The server performs length and email validation, validates the service against the site configuration, includes a honeypot field, and sends both a branded HTML email and a plain-text fallback. The visitor's email is used as `replyTo`, so Ahmed can reply directly.
+
+The endpoint returns a safe `503` response until credentials are configured. Local validation has confirmed the invalid-payload `400` and missing-configuration `503` paths without sending a message.
 
 ## 5. Reel playback behavior
 
@@ -153,11 +172,16 @@ Important naming note: the user requested the website name `ahmedphotography`, w
 - `components/archive.tsx` — `/work` and filtered archive heading/content
 - `components/portfolio.tsx` — homepage hero, category index, and selected reels
 - `components/navigation.tsx` — navigation, theme switcher, mobile menu, custom cursor
+- `components/footer.tsx` — theme-aware Instagram and email/contact icons plus footer CTA
+- `components/inquiry.tsx` — contact fields, submission states, and client-side API call
 - `components/studio.tsx` — personal introduction and call-to-action sections
 - `app/globals.css` — shared theme and responsive design rules
+- `app/api/contact/route.ts` — server-side validation and Nodemailer delivery
+- `lib/contact-email.ts` — structured HTML and plain-text inquiry templates
 - `app/layout.tsx` — metadata, root layout, theme initialization
-- `next.config.ts` — static export and separate development build directory
-- `.openai/hosting.json` — existing Sites hosting configuration; do not use it unless deployment is requested
+- `next.config.ts` — Node-capable production build and separate development build directory
+- `.env.example` — names and descriptions of required mail variables
+- `.openai/hosting.json` — legacy static Sites hosting configuration; it is no longer compatible with the Nodemailer endpoint
 
 `app/globals.css` is compact and contains later override sections for the Ahmad branding and editorial reel wall. Prefer small targeted edits near the relevant labelled section. Avoid reformatting or replacing the entire stylesheet during a minor change.
 
@@ -176,12 +200,14 @@ Recommended next direction:
 ## 11. Known placeholders and pending decisions
 
 - `studio.email` and `studio.phone` in `lib/portfolio.ts` are placeholders and need real contact details.
+- Gmail credentials still need to be added to `.env.local` before real inquiries can be delivered.
 - The current studio portrait is still an Unsplash image and should be replaced with Ahmed's supplied profile picture.
 - Several older photo/project records remain from the original template. They are secondary to the reel archive and can be retired later if the user wants a fully video-only site.
 - The hero background requires authentic final media.
 - Confirm whether the supplied logo spelling “Ahmad” or the requested brand spelling “Ahmed” should be canonical.
 - Before a real public launch, confirm Ahmed has the rights and client permission to self-host every reel.
 - For higher traffic, move the MP4 files to a video-capable CDN or object storage and retain posters locally. The current local/static files are appropriate for development and a modest portfolio but are not adaptive-bitrate streams.
+- Nodemailer uses Gmail SMTP and therefore requires Node-compatible hosting with outbound SMTP access. OpenAI Sites static hosting—and hosting platforms that block SMTP—cannot run this endpoint. If deploying there later, replace Nodemailer with an HTTPS transactional-email API.
 
 ## 12. Local server troubleshooting
 
@@ -220,6 +246,9 @@ There are intentional uncommitted changes after that commit. They include:
 - asymmetric editorial reel-wall layout
 - reel JPG and MP4 assets
 - `.gitignore` exceptions for those assets
+- theme-aware footer Instagram and contact icons
+- Node/Nodemailer contact endpoint, structured HTML email, form states, and `.env.example`
+- removal of static export to support server-side email delivery
 - this handoff document
 
 Do not reset or discard the working tree. Review `git status` and preserve all existing media before making additional changes.
@@ -238,5 +267,5 @@ Before handing back any new change:
 - Run `git diff --check`.
 - Confirm `http://localhost:3000/` and `http://localhost:3000/work` return successful responses.
 - For media changes, confirm an MP4 request supports byte ranges.
+- For contact changes, test validation without real credentials before performing one authorized end-to-end email test.
 - Do not deploy unless the user asks.
-
