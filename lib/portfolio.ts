@@ -6,7 +6,28 @@ export const studio = {
   location: 'Islamabad, Pakistan',
 };
 
-export const categories = ['Showreels', 'Hospitality', 'Brands', 'Process', 'Travel'] as const;
+export const heroSlides = [
+  {
+    id: 'hero-1',
+    desktop: '/hero/desktop_hero1.JPG',
+    mobile: '/hero/mobile-hero1.jpg',
+    alt: 'Ahmed filming on location with camera and soft evening light',
+  },
+  {
+    id: 'hero-2',
+    desktop: '/hero/desktop_hero2.JPG',
+    mobile: '/hero/mobile-hero2.JPG',
+    alt: 'Behind-the-scenes atmosphere from a cinematic production',
+  },
+  {
+    id: 'hero-3',
+    desktop: '/hero/desktop_hero3.JPG',
+    mobile: '/hero/mobile_hero3.JPG',
+    alt: 'Ahmed working a shot during a film or photography setup',
+  },
+] as const;
+
+export const categories = ['Restaurants', 'Hospitality', 'Brands', 'Process', 'Travel'] as const;
 
 export type Category = typeof categories[number];
 
@@ -30,9 +51,26 @@ export type InstagramReel = {
   client: string;
   year: number;
   description: string;
+  /** Path under /public once ready, e.g. `/reels/brew-district.jpg`. Leave empty while placeholder. */
   thumbnail: string;
+  /** Path under /public once ready, e.g. `/reels/brew-district.mp4`. Leave empty while placeholder. */
   video: string;
   url: string;
+  placeholder?: boolean;
+};
+
+export type PortfolioPhoto = {
+  id: string;
+  title: string;
+  category: Category;
+  client: string;
+  year: number;
+  description: string;
+  /** Path under /public once ready, e.g. `/photos/brew-district-still.jpg`. Leave empty while placeholder. */
+  image: string;
+  alt: string;
+  orientation: 'portrait' | 'landscape' | 'square';
+  placeholder?: boolean;
 };
 
 export const photo = (id: string, width = 1600) =>
@@ -132,7 +170,7 @@ export const projects: Project[] = [
   {
     slug: 'a-day-to-remember',
     title: 'A day in motion.',
-    category: 'Showreels',
+    category: 'Restaurants',
     year: 2026,
     location: 'Wedding film',
     description:
@@ -171,7 +209,7 @@ export const projects: Project[] = [
   {
     slug: 'in-your-own-light',
     title: 'In your own rhythm.',
-    category: 'Showreels',
+    category: 'Restaurants',
     year: 2026,
     location: 'Portrait film',
     description:
@@ -209,83 +247,155 @@ export const projects: Project[] = [
   },
 ];
 
+/** Portrait reels. Replace thumbnail/video paths and set `placeholder: false` when finals are ready. */
 export const reels: InstagramReel[] = [
   {
-    id: '2025-showreel',
-    title: 'The 2025 journey.',
-    category: 'Showreels',
-    client: 'Selected work',
-    year: 2025,
-    description: 'A portrait-format edit bringing together favourite frames, collaborations, and stories from across the year.',
-    thumbnail: '/reels/2025-showreel.jpg',
-    video: '/reels/2025-showreel.mp4',
-    url: 'https://www.instagram.com/ahmedphotography_0/reel/DSIFCnAjJji/',
-  },
-  {
-    id: 'brew-district',
-    title: 'What you see / what we create.',
-    category: 'Brands',
-    client: 'Brew District',
+    id: 'reel-restaurants-01',
+    title: 'Restaurant reel.',
+    category: 'Restaurants',
+    client: 'Placeholder',
     year: 2026,
-    description: 'A behind-the-lens look at the craft and final cinematic result of a recent brand shoot.',
-    thumbnail: '/reels/brew-district.jpg',
-    video: '/reels/brew-district.mp4',
-    url: 'https://www.instagram.com/ahmedphotography_0/reel/DXby_IMjKR7/',
+    description: 'Placeholder for a restaurant-focused portrait reel. Drop the final MP4 and poster into public/reels/.',
+    thumbnail: '',
+    video: '',
+    url: 'https://www.instagram.com/ahmedphotography_0/',
+    placeholder: true,
   },
   {
-    id: 'lasortie',
-    title: 'A taste of Lasortie.',
+    id: 'reel-brands-01',
+    title: 'Brand reel.',
+    category: 'Brands',
+    client: 'Placeholder',
+    year: 2026,
+    description: 'Placeholder for a brand / commercial reel.',
+    thumbnail: '',
+    video: '',
+    url: 'https://www.instagram.com/ahmedphotography_0/',
+    placeholder: true,
+  },
+  {
+    id: 'reel-hospitality-01',
+    title: 'Hospitality reel.',
     category: 'Hospitality',
-    client: 'Lasortie Restaurant',
-    year: 2025,
-    description: 'Food, atmosphere, and service shaped into a concise hospitality reel.',
-    thumbnail: '/reels/lasortie.jpg',
-    video: '/reels/lasortie.mp4',
-    url: 'https://www.instagram.com/ahmedphotography_0/reel/DRMzjEvDH9L/',
+    client: 'Placeholder',
+    year: 2026,
+    description: 'Placeholder for a hospitality film — food, service, atmosphere.',
+    thumbnail: '',
+    video: '',
+    url: 'https://www.instagram.com/ahmedphotography_0/',
+    placeholder: true,
   },
   {
-    id: 'hotel-crown-bts',
-    title: 'Behind the Hotel Crown shoot.',
+    id: 'reel-process-01',
+    title: 'Process reel.',
     category: 'Process',
-    client: 'Hotel Crown',
-    year: 2025,
-    description: 'A quick look at the location, setup, and movement behind a commercial food shoot.',
-    thumbnail: '/reels/hotel-crown-bts.jpg',
-    video: '/reels/hotel-crown-bts.mp4',
-    url: 'https://www.instagram.com/ahmedphotography_0/reel/DPqY0ABDHm-/',
+    client: 'Placeholder',
+    year: 2026,
+    description: 'Placeholder for a behind-the-scenes / process reel.',
+    thumbnail: '',
+    video: '',
+    url: 'https://www.instagram.com/ahmedphotography_0/',
+    placeholder: true,
   },
   {
-    id: 'watandar',
-    title: 'Watandar Restaurant.',
-    category: 'Hospitality',
-    client: 'Watandar Restaurant',
-    year: 2025,
-    description: 'An energetic food reel built around Afghani tikka, flame, texture, and place.',
-    thumbnail: '/reels/watandar.jpg',
-    video: '/reels/watandar.mp4',
-    url: 'https://www.instagram.com/ahmedphotography_0/reel/DPbRmVPiOAY/',
-  },
-  {
-    id: 'recent-shoot-bts',
-    title: 'The frame behind the frame.',
-    category: 'Process',
-    client: 'Behind the scenes',
-    year: 2025,
-    description: 'A compact process reel showing how a cinematic setup comes together before the final shot.',
-    thumbnail: '/reels/recent-shoot-bts.jpg',
-    video: '/reels/recent-shoot-bts.mp4',
-    url: 'https://www.instagram.com/ahmedphotography_0/reel/DPGPpG3jA6f/',
-  },
-  {
-    id: 'rawalpindi-photowalk',
-    title: 'Rawalpindi Photowalk.',
+    id: 'reel-travel-01',
+    title: 'Travel reel.',
     category: 'Travel',
-    client: 'Personal work',
-    year: 2025,
-    description: 'Behind the scenes from a day of observing Rawalpindi through movement, streets, and people.',
-    thumbnail: '/reels/rawalpindi-photowalk.jpg',
-    video: '/reels/rawalpindi-photowalk.mp4',
-    url: 'https://www.instagram.com/ahmedphotography_0/reel/DO269_ECFjf/',
+    client: 'Placeholder',
+    year: 2026,
+    description: 'Placeholder for a travel or street observation reel.',
+    thumbnail: '',
+    video: '',
+    url: 'https://www.instagram.com/ahmedphotography_0/',
+    placeholder: true,
+  },
+  {
+    id: 'reel-hospitality-02',
+    title: 'Hospitality reel II.',
+    category: 'Hospitality',
+    client: 'Placeholder',
+    year: 2026,
+    description: 'Second hospitality placeholder for the archive grid.',
+    thumbnail: '',
+    video: '',
+    url: 'https://www.instagram.com/ahmedphotography_0/',
+    placeholder: true,
+  },
+];
+
+/** Still photography. Replace `image` paths and set `placeholder: false` when finals are ready. */
+export const photos: PortfolioPhoto[] = [
+  {
+    id: 'hospitality-still-01',
+    title: 'Table light.',
+    category: 'Hospitality',
+    client: 'Placeholder',
+    year: 2026,
+    description: 'A quiet hospitality still — food, atmosphere, and warmth. Photo coming soon.',
+    image: '',
+    alt: 'Placeholder for a hospitality still photograph',
+    orientation: 'portrait',
+    placeholder: true,
+  },
+  {
+    id: 'brand-still-01',
+    title: 'Product in frame.',
+    category: 'Brands',
+    client: 'Placeholder',
+    year: 2026,
+    description: 'Brand photography placeholder for campaign and product stills.',
+    image: '',
+    alt: 'Placeholder for a brand still photograph',
+    orientation: 'landscape',
+    placeholder: true,
+  },
+  {
+    id: 'process-still-01',
+    title: 'Between setups.',
+    category: 'Process',
+    client: 'Placeholder',
+    year: 2026,
+    description: 'Behind-the-scenes stills from a shoot day. Photo coming soon.',
+    image: '',
+    alt: 'Placeholder for a behind-the-scenes photograph',
+    orientation: 'square',
+    placeholder: true,
+  },
+  {
+    id: 'travel-still-01',
+    title: 'Street texture.',
+    category: 'Travel',
+    client: 'Placeholder',
+    year: 2026,
+    description: 'Travel and street photography placeholder — place, people, light.',
+    image: '',
+    alt: 'Placeholder for a travel still photograph',
+    orientation: 'portrait',
+    placeholder: true,
+  },
+  {
+    id: 'brand-still-02',
+    title: 'Soft detail.',
+    category: 'Brands',
+    client: 'Placeholder',
+    year: 2026,
+    description: 'Secondary brand still for the archive grid. Replace with final JPEG.',
+    image: '',
+    alt: 'Placeholder for a second brand still photograph',
+    orientation: 'portrait',
+    placeholder: true,
+  },
+  {
+    id: 'hospitality-still-02',
+    title: 'Service and space.',
+    category: 'Hospitality',
+    client: 'Placeholder',
+    year: 2026,
+    description: 'Wide hospitality frame placeholder for dining rooms and atmosphere.',
+    image: '',
+    alt: 'Placeholder for a hospitality atmosphere photograph',
+    orientation: 'landscape',
+    placeholder: true,
   },
 ];
 

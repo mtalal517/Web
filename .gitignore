@@ -9,5 +9,13 @@ out/
 .next-dev/
 *.mp4
 *.jpg
+*.JPG
 !public/reels/*.mp4
 !public/reels/*.jpg
+!public/reels/*.JPG
+!public/hero/*.jpg
+!public/hero/*.JPG
+!public/photos/*.jpg
+!public/photos/*.JPG
+!public/photos/*.jpeg
+!public/photos/*.webp
