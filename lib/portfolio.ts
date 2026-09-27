@@ -27,7 +27,7 @@ export const heroSlides = [
   },
 ] as const;
 
-export const categories = ['Restaurants', 'Hospitality', 'Brands', 'Process', 'Travel'] as const;
+export const categories = ['Restaurants', 'Hospitality', 'Brands', 'Process', 'Travel', 'Sports'] as const;
 
 export type Category = typeof categories[number];
 
@@ -247,19 +247,40 @@ export const projects: Project[] = [
   },
 ];
 
-/** Portrait reels. Replace thumbnail/video paths and set `placeholder: false` when finals are ready. */
+/** Portrait reels. Home featured order: travel1, restaurant1, sports1. */
 export const reels: InstagramReel[] = [
   {
-    id: 'reel-restaurants-01',
+    id: 'travel1',
+    title: 'Travel reel.',
+    category: 'Travel',
+    client: 'Personal work',
+    year: 2025,
+    description: 'A travel reel shaped by movement, place, and atmosphere.',
+    thumbnail: '/reels/travel1.jpg',
+    video: '/reels/travel1.mp4',
+    url: 'https://www.instagram.com/ahmedphotography_0/',
+  },
+  {
+    id: 'restaurant1',
     title: 'Restaurant reel.',
     category: 'Restaurants',
-    client: 'Placeholder',
-    year: 2026,
-    description: 'Placeholder for a restaurant-focused portrait reel. Drop the final MP4 and poster into public/reels/.',
-    thumbnail: '',
-    video: '',
+    client: 'Restaurant work',
+    year: 2025,
+    description: 'Food, dining rooms, and the feeling of a place — in portrait format.',
+    thumbnail: '/reels/restaurant1.jpg',
+    video: '/reels/restaurant1.mp4',
     url: 'https://www.instagram.com/ahmedphotography_0/',
-    placeholder: true,
+  },
+  {
+    id: 'sports1',
+    title: 'Sports reel.',
+    category: 'Sports',
+    client: 'Sports work',
+    year: 2025,
+    description: 'Energy, motion, and competitive moments cut for attention.',
+    thumbnail: '/reels/sports1.jpg',
+    video: '/reels/sports1.mp4',
+    url: 'https://www.instagram.com/ahmedphotography_0/',
   },
   {
     id: 'reel-brands-01',
@@ -292,30 +313,6 @@ export const reels: InstagramReel[] = [
     client: 'Placeholder',
     year: 2026,
     description: 'Placeholder for a behind-the-scenes / process reel.',
-    thumbnail: '',
-    video: '',
-    url: 'https://www.instagram.com/ahmedphotography_0/',
-    placeholder: true,
-  },
-  {
-    id: 'reel-travel-01',
-    title: 'Travel reel.',
-    category: 'Travel',
-    client: 'Placeholder',
-    year: 2026,
-    description: 'Placeholder for a travel or street observation reel.',
-    thumbnail: '',
-    video: '',
-    url: 'https://www.instagram.com/ahmedphotography_0/',
-    placeholder: true,
-  },
-  {
-    id: 'reel-hospitality-02',
-    title: 'Hospitality reel II.',
-    category: 'Hospitality',
-    client: 'Placeholder',
-    year: 2026,
-    description: 'Second hospitality placeholder for the archive grid.',
     thumbnail: '',
     video: '',
     url: 'https://www.instagram.com/ahmedphotography_0/',

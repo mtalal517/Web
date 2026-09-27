@@ -39,6 +39,7 @@ export function CategoryIndex() {
     Brands: 'Social-first commercial stories and product photography built around craft, process, and people.',
     Process: 'The setups, movement, and decisions behind the final frame—in motion and in stills.',
     Travel: 'Street observations and personal work shaped by movement, people, texture, and a sense of place.',
+    Sports: 'Pace, power, and emotion—sports films cut for rhythm, replay, and the moments between plays.',
   } as const;
   const reelCount = reels.filter(reel => reel.category === category).length;
   const photoCount = photos.filter(photo => photo.category === category).length;
@@ -46,8 +47,44 @@ export function CategoryIndex() {
     reelCount ? `${String(reelCount).padStart(2, '0')} REEL${reelCount === 1 ? '' : 'S'}` : null,
     photoCount ? `${String(photoCount).padStart(2, '0')} PHOTO${photoCount === 1 ? '' : 'S'}` : null,
   ].filter(Boolean).join(' · ') || 'COMING SOON';
+  const href = `/work/category/${category.toLowerCase()}`;
 
-  return <section className="category-section section-pad"><div className="section-note"><span className="eyebrow">WHAT I CREATE</span><p>Films and photography.<br />Made for the way people watch—and look.</p></div><div className="category-layout"><div className="category-list">{categories.map((item, i) => <button className={`category-row ${active === i ? 'active' : ''}`} key={item} onMouseEnter={() => setActive(i)} onFocus={() => setActive(i)} onClick={() => setActive(i)} aria-pressed={active === i}><span className="index">0{i + 1}</span><span>{item}</span><span className="category-indicator" aria-hidden="true" /></button>)}</div><motion.div className="category-manifest" key={category} initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} transition={{duration:.35}}><span className="eyebrow">{mediumLabel}</span><h3>{category}</h3><p>{notes[category]}</p><Link className="text-link" href={`/work/category/${category.toLowerCase()}`}>Explore {category.toLowerCase()} <ArrowUpRight size={17}/></Link></motion.div></div></section>;
+  return (
+    <section className="category-section section-pad">
+      <div className="section-note">
+        <span className="eyebrow">WHAT I CREATE</span>
+        <p>Films and photography.<br />Made for the way people watch—and look.</p>
+      </div>
+      <div className="category-layout">
+        <div className="category-list" role="list">
+          {categories.map((item, i) => (
+            <Link
+              className={`category-row ${active === i ? 'active' : ''}`}
+              key={item}
+              href={`/work/category/${item.toLowerCase()}`}
+              role="listitem"
+              onMouseEnter={() => setActive(i)}
+              onFocus={() => setActive(i)}
+              onPointerDown={() => setActive(i)}
+            >
+              <span className="index">0{i + 1}</span>
+              <span>{item}</span>
+              <span className="category-indicator" aria-hidden="true" />
+              <ArrowUpRight className="category-row-go" size={18} aria-hidden="true" />
+            </Link>
+          ))}
+        </div>
+        <motion.div key={category} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
+          <Link className="category-manifest" href={href} aria-label={`Explore ${category} work`}>
+            <span className="eyebrow">{mediumLabel}</span>
+            <h3>{category}</h3>
+            <p>{notes[category]}</p>
+            <span className="text-link">Explore {category.toLowerCase()} <ArrowUpRight size={17} /></span>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
 }
 
 export function SelectedWork() {
@@ -56,7 +93,7 @@ export function SelectedWork() {
       <section id="selected" className="selected section-pad">
         <div className="section-heading">
           <div>
-            <span className="eyebrow">PUBLIC REELS / COMING SOON</span>
+            <span className="eyebrow">PUBLIC REELS / SELECTED</span>
             <h2>Made to move.<br/><em>Built to hold attention.</em></h2>
           </div>
           <MagneticLink href="/work">Watch all reels</MagneticLink>
